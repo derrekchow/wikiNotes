@@ -1,0 +1,125 @@
+.header {
+	margin:0;
+	color:#263238;
+	padding:4rem;
+}
+
+#backImage {
+	background-image: url('back.jpg');
+	background-size: cover;
+	background-position: center;
+	width:100%;
+	height: 50vh;
+	position: absolute;
+	top:0;
+	opacity: .1;
+	left:0;
+	z-index: -3;
+	box-shadow: 0px 1px 2px black;
+}
+
+#backColor {
+	width:100%;
+	height: 50vh;
+	background-color: #03A9F4;
+	position: absolute;
+	top:0;
+	opacity: .1;
+	left:0;
+	z-index: -1;
+}
+
+#back, #search {
+	color:white;
+}
+
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link--current {
+	background-color: #E1F5FE !important;
+}
+
+#signIn:hover {
+	background-color: transparent !important;
+}
+
+#subjectSearch .mdl-textfield {
+	width:80% !important;
+}
+
+.mdl-data-table {
+	width:100%;
+}
+
+tr, .mdl-cell, a:hover {
+	cursor: pointer !important;
+}
+
+.box {
+	-webkit-transition:.5s;
+}
+
+.box:hover {
+	box-shadow: 0.5px 0.5px 10px #607D8B;
+}
+
+.image-cropper {
+	max-width: 100px;
+	height: auto;
+	position: relative;
+	overflow: hidden;
+	padding-bottom:15px;
+}
+
+.image-cropper img{
+	display: block;
+	height: 50px;
+	margin:0;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;  
+}
+
+#accountNav {
+	padding-top:20px;
+	padding-left:20px;
+	display: none;
+}
+
+.mdl-navigation__link .material-icons {
+	margin-right:32px;
+}
+
+#editor {
+width:100%;
+}
+
+.mdl-layout__content {
+z-index:initial !important;
+}
+
+.ql-tooltip.ql-editing {
+	left: 10px !important;
+	z-index:1;
+}
+
+.ql-toolbar.ql-snow {
+z-index:4;
+position:fixed;
+background-color:white;
+top:10px;
+right:0
+margin-right:100px;
+}
+
+#edit {
+z-index:4;
+position:fixed;
+background-color:white;
+top:13px;
+right:0;
+margin-right:10px;
+}
+
+
+

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+	<!-- Create the editor container -->
+	<div id="editor">
+	</div>
+
+	<!-- Raised button -->
+	<button class="mdl-button mdl-js-button mdl-button--raised" id="edit">
+		EDIT
+	</button>
+
+	<script>
+
+	$(document).ready(function(){
+		var fileName = "lessons/" + $('.fileName')[0].id + ".html";
+		$.get(fileName, function(result) {
+			$('.ql-editor').html(result);
+		});
+		$('#edit').click(function(){
+			if ($('#edit')[0].innerText == "DONE") {
+				alert("Thank you for contributing to Wiki Notes!");
+				quill.disable()
+				$('.ql-toolbar').hide()
+				$('#edit').text("EDIT")
+				var note = $('.ql-editor')[0].innerHTML;
+				$.ajax({
+					type: 'POST',
+					url: 'saveFile.php',
+					data: {
+						'fileName': fileName,
+						'text': note
+					},
+					success: function(msg) {
+						console.log("success! " + msg);
+					}
+				});
+			} else {
+				alert("You have now entered edit mode!");
+				quill.enable()
+				$('.ql-toolbar').show()
+				$('#edit').text("DONE")
+			}
+		});
+	});
+
+	var toolbarOptions = [
+	  ['bold', 'italic', 'underline'],        // toggled buttons
+	  ['code-block'],
+
+	  [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+	  [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+	  //['formula'],
+
+	  [{ 'color': [] }],          // dropdown with defaults from theme
+
+	  [{ 'align': [] }],
+                                        // remove formatting button
+	  [{ 'header': [1, 2, 3, false] }],
+	  ['image', 'video', 'formula']
+	];
+
+	var quill = new Quill('#editor', {
+	  modules: {
+		formula: true,
+		toolbar: toolbarOptions
+	  },
+	  theme: 'snow'
+	});
+	quill.disable()
+	$('.ql-toolbar').hide()
+
+	</script>
+</body>
+</html>
